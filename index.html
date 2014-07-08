@@ -15,6 +15,7 @@
     </head>
     <body>
         <div data-role="view" data-init="mobileListViewPullWithEndless" id="tabstrip-home" data-title="Artists">
+             <button onclick="socialsharingDemo()">SocialSharing</button>
              <ul id="artistsListView"></ul>
         </div>
 
@@ -55,7 +56,9 @@
                 </div>
             </div>
         </div>
-
+		<!-- plugins demo -->
+		<script src="scripts/socialsharing-plugin-demo.js"></script>
+                <script type="text/javascript" src="scripts/index.js"></script>
         <script>
            
             var app = new kendo.mobile.Application(document.body, { transition: "slide", layout: "mobile-tabstrip" });
