@@ -20,6 +20,7 @@ var app = {
   // Application Constructor
   initialize: function () {
     this.bindEvents();
+    this.initFastClick();
   },
   // Bind Event Listeners
   //
@@ -32,6 +33,11 @@ var app = {
       this.onDeviceReady();
     }
   },
+  initFastClick : function() {
+        window.addEventListener('load', function() {
+            FastClick.attach(document.body);
+        }, false);
+    },
   // deviceready Event Handler
   //
   // The scope of 'this' is the event. In order to call the 'receivedEvent'

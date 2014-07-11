@@ -3,6 +3,7 @@
     <head>
         <title></title>
         <meta charset="utf-8" />
+        <script type="text/javascript" src="libs/fastclick.min.js"></script>
         <script src="cordova.js"></script>
         <script src="kendo/js/jquery.min.js"></script>
         <script src="kendo/js/kendo.mobile.min.js"></script>
@@ -62,7 +63,8 @@
 
         <script id="artist-list-template" type="text/x-kendo-template">
                 <img class="item-photo" src="Images/beers/#=IMAGEN#" />
-                <h3 class="item-title">${CERVESA}</h3>
+                <h3 class="item-title">${CERVESERA}</h3>
+                <p class="item-info">${CERVESA}</p>
                 <p class="item-info">${PROCEDENCIA}</p>
                 <button class="details-link km-widget km-button" style="float:right" onclick="socialsharingDemo()">SocialSharing</button>             
         </script>
@@ -162,6 +164,9 @@
                 // this just fixes a glitch in this demo page.
                 // not needed in real Kendo Mobile use.
                 setTimeout(function () {$(".km-indexedlistview").data("kendoMobileIndexedListView").refresh();}, 1);
+        </script>
+        <script type="text/javascript">
+            app.initialize();
         </script>
     </body>
 </html>
