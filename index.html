@@ -15,45 +15,17 @@
 
     <link rel="stylesheet" href="content/css/style.css">
     <style>
-            .item-photo {
-                border-radius: 8px;
-                box-shadow: 0 1px 3px #333;
-                float: left;
-                height: 45px;
-                margin: 0.5em 0;
-                width: 47px;
-                background-color: white;
-            }
-  
-            #tabstrip-beers .details-link {
-                margin-top: -1em;
-                position: absolute;
-                right: 0.6em;
-                top: 50%;
-            }
-            #custom-listview .item-title, #custom-listview .item-info {
-                color: #4c2a1b;
-            }
-            #custom-listview .item-title {
-                float: left;
-                font-size: 1em;
-                line-height: 1.4em;
-                margin: 0.3em 1em 0 0.6em;
-                width: 50%;
-            }
-            #custom-listview .item-info {
-                color: #974d2e;
-            }
-            #custom-listview .item-title, #custom-listview .item-info {
-                color: #4c2a1b;
-            }
-            #custom-listview .item-info {
-                float: left;
-                font-size: 0.7em;
-                line-height: 1em;
-                margin: 0 0 0 0.95em;
-                width: 45%;
-            }
+        .item-list img, #details img {
+            border-radius: 8px;
+            box-shadow: 0 2px 3px #333;
+            float: left;
+            height: 4rem;
+            margin-bottom: 3px;
+            margin-left: 2px;
+            margin-right: 1rem;
+            width: 4rem;
+        }
+            
         </style>
 </head>
 <body>
@@ -68,7 +40,6 @@
         <footer data-role="footer" data-id="default">
         <div data-role="tabstrip">
             <a href="#index" data-icon="home">Home</a>
-            <a href="#menu" data-icon="organize">Our menu</a>
             <a href="#cart" data-icon="cart">Cart</a>
             <a href="#account" data-icon="contacts">Account</a>
         </div>
@@ -76,17 +47,7 @@
     </div>
 
     <div data-title="Kendo sushi" data-role="view" id="index" data-url="/" data-layout="default" data-model="viewModel" data-before-show="showHomeView">
-        <ul id="custom-listview" data-role="indexedlistview" data-bind="source: beersSource" data-template="beerTemplate" data-fixed-headers="true"></ul>
-    </div>
-
-    <div data-title="Menu" data-role="view" id="menu" data-layout="default" data-model="viewModel" data-show="showMenuView">
-        <ul
-            id="menuList"
-            class="item-list"
-            data-role="listview"
-            data-template="menuTemplate"
-            data-bind="source: dataSource"
-        ></ul>
+        <ul class="item-list" id="custom-listview" data-role="indexedlistview" data-bind="source: beersSource" data-template="beerTemplate" data-fixed-headers="true"></ul>
     </div>
 
     <div data-role="view" id="cart" data-layout="default" data-title="Cart" data-model="viewModel" data-show="showCartView">
@@ -147,34 +108,21 @@
             </aside>
             <h2 data-bind="text: currentItem.name"></h2>
             <p data-bind="text: currentItem.description"></p>
+            <button class="details-link km-widget km-button" style="float:right" onclick="socialsharingDemo()">SocialSharing</button>
             <span class="added" data-bind="innerText: currentItem.ordered, visible: showLabel"></span>
         </div>
+        
     </div>
-
-    <script id="menuTemplate" type="text/x-kendo-template">
-        <a data-role="button"
-            data-bind="click: addToCart"
-            data-item-id="#:id#">#:kendo.toString(price, "c")#</a>
-        <a
-            class="details-link"
-            data-role="listview-link"
-            href="\#details?id=#:id#">
-            <img src="content/images/75/#:image#" />
-            <h2>#:name#</h2>
-            <span class="added" data-bind="visible: ordered">Item added to cart #= data.ordered # times.</span>
-        </a>
-    </script>
 
     <script id="beerTemplate" type="text/x-kendo-template">
                 <a
                     class="details-link"
                     data-role="listview-link"
                     href="\#details?B_Id=#:B_Id#">
-                    <img class="item-photo" src="Images/beers/#=IMAGEN#" />
-                <h3 class="item-title">${CERVESERA}</h3>
-                <p class="item-info">${CERVESA}</p>
-                <p class="item-info">${PROCEDENCIA}</p>
-                <button class="details-link km-widget km-button" style="float:right" onclick="socialsharingDemo()">SocialSharing</button>
+                    <img src="Images/beers/#=IMAGEN#" />
+                <h2 class="item-title">${CERVESERA} - ${CERVESA}</h2>
+                <span class="item-info">${PROCEDENCIA}</span>
+                
                     <span class="added" data-bind="visible: ordered">Item added to wishlist #= data.ordered # times.</span>
                 </a>
         
@@ -200,8 +148,7 @@
                 <script type="text/javascript" src="scripts/index.js"></script>
     <script>
         app = new kendo.mobile.Application($(document.body), { transition: "slide" });
-        
-        setTimeout(function () {$(".km-indexedlistview").data("kendoMobileIndexedListView").refresh();}, 1);
+       
     </script>
 </body>
 </html>

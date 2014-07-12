@@ -78,6 +78,8 @@
     });
 
     function showHomeView(e) {
+         
+        setTimeout(function () {$(".km-indexedlistview").data("kendoMobileIndexedListView").refresh();}, 1);
         //alert("showHomeView");
         /*viewModel.dataSource.group([]);
         $("#featured").data("kendoMobileListView").options.type = "flat";
