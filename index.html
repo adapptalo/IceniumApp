@@ -43,15 +43,15 @@
             #custom-listview .item-info {
                 color: #974d2e;
             }
-            #custom-listview .item-title, #custom-listview .item-info {
+            .item-title, .item-info {
                 color: #4c2a1b;
             }
-            #custom-listview .item-info {
+            .item-info {
                 float: left;
-                font-size: 0.7em;
+                font-size: 0.8em;
                 line-height: 1em;
-                margin: 0 0 0 0.95em;
-                width: 45%;
+                /*margin: 0 0 0 0.95em;*/
+                width: 47%;
             }
         </style>
 </head>
@@ -147,8 +147,8 @@
                     data-role="listview-link"
                     href="\#details?B_Id=#:B_Id#">
                     <img src="Images/beers/#=IMAGEN#" />
-                <h2 class="item-title">${CERVESERA} - ${CERVESA}</h2>
-                <span class="item-info">${PROCEDENCIA}</span>                
+                    <h2 class="item-title">${CERVESERA}</h2>
+                    <span class="item-info">${CERVESA}</span>                
                     <span class="added" data-bind="visible: ordered">Item added to wishlist #= data.ordered # times.</span>
                 </a>
         
