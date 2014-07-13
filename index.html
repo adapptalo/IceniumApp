@@ -35,9 +35,9 @@
             }
             #custom-listview .item-title {
                 float: left;
-                font-size: 1em;
+                font-size: 13px;
                 line-height: 1.4em;
-                margin: 0.3em 1em 0 0.6em;
+                margin: 0 1em 0 0;
                 width: 50%;
             }
             #custom-listview .item-info {
@@ -147,7 +147,9 @@
                     data-role="listview-link"
                     href="\#details?B_Id=#:B_Id#">
                     <img src="Images/beers/#=IMAGEN#" />
-                ${CERVESERA} - ${CERVESA}
+                <h2 class="item-title">${CERVESERA} - ${CERVESA}</h2>
+                <span class="item-info">${PROCEDENCIA}</span>                
+                    <span class="added" data-bind="visible: ordered">Item added to wishlist #= data.ordered # times.</span>
                 </a>
         
     </script>

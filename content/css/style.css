@@ -16,10 +16,8 @@
 .item-list img,
 #details img
 {
-    width: 4em;
-    height: 4em;
-    width: 4rem;
-    height: 4rem;
+    width: 35px;
+    height: 35px;
     float: left;
     margin-right: 1em;
     margin-right: 1rem;
